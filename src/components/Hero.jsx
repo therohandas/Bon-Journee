@@ -20,11 +20,10 @@ export default function Hero(){
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: .6, delay:.1, ease: 'easeOut' }}
       >
-        <h3 style={{marginTop:0}}>Today’s Picks</h3>
+        <h3 style={{marginTop:0}}>Today’s Thought</h3>
         <ul style={{margin:'8px 0 0 18px'}}>
-          <li>Low crowd beaches near you</li>
-          <li>Hidden cafés with ocean views</li>
-          <li>Short hikes with big payoffs</li>
+          <p>“See the world. It’s more fantastic than any dream.” </p>
+          <p>– Ray Bradbury</p>
         </ul>
       </motion.div>
     </div>
