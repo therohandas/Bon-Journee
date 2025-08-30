@@ -10,8 +10,8 @@ export default function Hero(){
         transition={{ duration: .6, ease: 'easeOut' }}
       >
         <h1>Find your next <span style={{color:'var(--e-sand)'}}>earthy</span> escape</h1>
-        <p>Live crowd data, curated hotspots, and local vibes—wrapped in a cozy, earthish aesthetic. Not quite dark mode, not quite light… just right.</p>
-        <Link to="/location/1" className="btn">Start Exploring</Link>
+        <p>Every path is a story, every horizon a pause.</p>
+        <Link to="/explore" className="btn">Start Exploring</Link>
       </motion.div>
 
       <motion.div
