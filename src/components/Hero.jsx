@@ -21,7 +21,7 @@ export default function Hero(){
         transition={{ duration: .6, delay:.1, ease: 'easeOut' }}
       >
         <h3 style={{marginTop:0}}>Today’s Thought</h3>
-        <ul style={{margin:'8px 0 0 18px'}}>
+        <ul style={{margin:'5px 0 0 18px'}}>
           <p>“See the world. It’s more fantastic than any dream.” </p>
           <p>– Ray Bradbury</p>
         </ul>
