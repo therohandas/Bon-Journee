@@ -4,7 +4,7 @@ export default function Navbar(){
   return (
     <header className="navbar">
       <div className="container navbar-inner">
-        <Link to="/" className="brand">Smart Tourist Guide</Link>
+        <Link to="/" className="brand">Smart Tourism</Link>
         <nav className="nav-links">
           <NavLink to="/" className="nav-link">Home</NavLink>
           <NavLink to="/explore" className="nav-link">Explore</NavLink>
