@@ -15,9 +15,6 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
-      {/* Features Section */}
-      <Features />
-
       {/* Popular Spots Section */}
       <section className="py-20 px-6 lg:px-12">
         <div className="container mx-auto">
