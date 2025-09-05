@@ -9,41 +9,42 @@ import { tText } from '../utils/i18n.js'
 export default function Home() {
   const { lang } = useLang()
 
+  // Shuffle locations and pick 9
+  const randomSpots = [...locations]
+    .sort(() => Math.random() - 0.5) // shuffle
+    .slice(0, 9) // pick 9
+
   return (
     <PageTransition>
-      {/* Hero Section */}
       <Hero />
-
-      {/* Popular Spots Section */}
-      <section className="py-20 px-6 lg:px-12">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center">
-            Popular Spots
-          </h2>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {locations.slice(0, 9).map((spot) => (
-              <Card key={spot.id} className="spot-card">
+      <section className="section">
+        <div className="container">
+          <h2 style={{ marginBottom: 16 }}>Popular Spots</h2>
+          <div className="grid">
+            {randomSpots.map((spot) => (
+              <Card key={spot.id} className="spot-card col-4">
                 <Link
                   to={'/location/' + spot.slug}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
                   <img
-                    className="spot-img w-full h-56 object-cover rounded-xl shadow-md"
+                    className="spot-img"
                     src={spot.image}
                     alt={tText(spot.name, lang)}
                   />
-
-                  <div className="flex justify-between items-center mt-4">
-                    <strong className="text-lg">
-                      {tText(spot.name, lang)}
-                    </strong>
-                    <span className="text-sm text-yellow-500">
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <strong>{tText(spot.name, lang)}</strong>
+                    <span style={{ fontSize: '.9rem', color: 'var(--e-sand)' }}>
                       ★ {tText(spot.rating, lang)}
                     </span>
                   </div>
-
-                  <div className="flex justify-between text-sm text-muted-foreground mt-2">
+                  <div className="spot-meta">
                     <span>{tText(spot.city, lang)}</span>
                     <span>{tText(spot.crowd, lang)}</span>
                   </div>
