@@ -47,21 +47,6 @@ export default function Home() {
               </Card>
             ))}
           </div>
-
-          {/* View All button */}
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <Link
-              to="/explore"
-              style={{
-                padding: '10px 20px',
-                backgroundColor: 'var(--e-sand)',
-                color: '#fff',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                fontWeight: 'bold',
-              }}
-            >
-              View All
             </Link>
           </div>
         </div>
