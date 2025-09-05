@@ -1,5 +1,6 @@
 import PageTransition from '../components/PageTransition.jsx'
 import Hero from '../components/Hero.jsx'
+import Features from '../components/Features.jsx'
 import Card from '../components/Card.jsx'
 import { Link } from 'react-router-dom'
 import locations from '../data/locations.json'
@@ -11,35 +12,35 @@ export default function Home() {
 
   return (
     <PageTransition>
+      {/* Hero Section */}
       <Hero />
-      <section className="section">
-        <div className="container">
-          <h2 style={{ marginBottom: 16 }}>Popular Spots</h2>
-          <div className="grid">
+
+      {/* Features Section */}
+      <Features />
+
+      {/* Popular Spots */}
+      <section className="section py-20">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold mb-10 text-center">Popular Spots</h2>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {locations.slice(0, 9).map((spot) => (
-              <Card key={spot.id} className="spot-card col-4">
+              <Card key={spot.id} className="spot-card">
                 <Link
                   to={'/location/' + spot.slug}
                   style={{ textDecoration: 'none', color: 'inherit' }}
                 >
                   <img
-                    className="spot-img"
+                    className="spot-img w-full h-56 object-cover rounded-xl shadow-md"
                     src={spot.image}
                     alt={tText(spot.name, lang)}
                   />
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <strong>{tText(spot.name, lang)}</strong>
-                    <span style={{ fontSize: '.9rem', color: 'var(--e-sand)' }}>
+                  <div className="flex justify-between items-center mt-4">
+                    <strong className="text-lg">{tText(spot.name, lang)}</strong>
+                    <span className="text-sm text-yellow-500">
                       ★ {tText(spot.rating, lang)}
                     </span>
                   </div>
-                  <div className="spot-meta">
+                  <div className="flex justify-between text-sm text-muted-foreground mt-2">
                     <span>{tText(spot.city, lang)}</span>
                     <span>{tText(spot.crowd, lang)}</span>
                   </div>
