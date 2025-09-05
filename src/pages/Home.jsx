@@ -1,6 +1,5 @@
 import PageTransition from '../components/PageTransition.jsx'
 import Hero from '../components/Hero.jsx'
-import Features from '../components/Features.jsx'
 import Card from '../components/Card.jsx'
 import { Link } from 'react-router-dom'
 import locations from '../data/locations.json'
