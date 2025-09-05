@@ -40,18 +40,18 @@ export default function Features() {
           Explore smarter, travel deeper, and wander without limits.
         </p>
       </div>
+
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {featuresData.map((feature, index) => (
           <div
             key={index}
-            className="relative flex items-center gap-3 rounded-lg border-dashed md:block md:border-l md:p-5
-                       transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-primary/5 duration-300 ease-in-out"
+            className="relative flex items-center gap-3 rounded-lg border border-dashed md:block md:border-l md:p-5 transition-transform transform hover:scale-105 hover:shadow-lg hover:bg-primary/5 duration-300 ease-in-out"
           >
             <span className="md:mb-8 flex h-10 min-w-10 items-center justify-center rounded-full bg-primary/10 md:h-12 md:w-12">
               <feature.icon className="h-5 w-5 md:h-6 md:w-6 text-primary" />
             </span>
             <div>
-              <h3 className="text-lg md:text-xl font-semibold">
+              <h3 className="relative text-lg md:text-xl font-semibold">
                 {feature.title}
                 <span className="absolute -left-px h-6 hidden w-px bg-primary md:inline-block"></span>
               </h3>
