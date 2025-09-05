@@ -47,8 +47,6 @@ export default function Home() {
               </Card>
             ))}
           </div>
-            </Link>
-          </div>
         </div>
       </section>
     </PageTransition>
