@@ -6,7 +6,7 @@ import locations from '../data/locations.json'
 import { useLang } from '../contexts/LanguageContext.jsx'
 import { tText } from '../utils/i18n.js'
 
-export default function Home(){
+export default function Home() {
   const { lang } = useLang()
 
   return (
@@ -14,25 +14,55 @@ export default function Home(){
       <Hero />
       <section className="section">
         <div className="container">
-          <h2 style={{marginBottom:16}}>Popular Spots</h2>
+          <h2 style={{ marginBottom: 16 }}>Popular Spots</h2>
           <div className="grid">
-            {locations.map((spot) => (
+            {locations.slice(0, 9).map((spot) => (
               <Card key={spot.id} className="spot-card col-4">
-  <Link to={'/location/' + spot.slug} style={{textDecoration:'none', color:'inherit'}}>
-
-                <img className="spot-img" src={spot.image} alt={tText(spot.name, lang)} />
-                <div style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
-                  <strong>{tText(spot.name, lang)}</strong>
-                  <span style={{fontSize:'.9rem', color:'var(--e-sand)'}}>★ {tText(spot.rating, lang)}</span>
-                </div>
-                <div className="spot-meta">
-                  <span>{tText(spot.city, lang)}</span>
-                  <span>{tText(spot.crowd, lang)}</span>
-                </div>
-              
-  </Link>
-</Card>
+                <Link
+                  to={'/location/' + spot.slug}
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <img
+                    className="spot-img"
+                    src={spot.image}
+                    alt={tText(spot.name, lang)}
+                  />
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <strong>{tText(spot.name, lang)}</strong>
+                    <span style={{ fontSize: '.9rem', color: 'var(--e-sand)' }}>
+                      ★ {tText(spot.rating, lang)}
+                    </span>
+                  </div>
+                  <div className="spot-meta">
+                    <span>{tText(spot.city, lang)}</span>
+                    <span>{tText(spot.crowd, lang)}</span>
+                  </div>
+                </Link>
+              </Card>
             ))}
+          </div>
+
+          {/* View All button */}
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <Link
+              to="/explore"
+              style={{
+                padding: '10px 20px',
+                backgroundColor: 'var(--e-sand)',
+                color: '#fff',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+              }}
+            >
+              View All
+            </Link>
           </div>
         </div>
       </section>
