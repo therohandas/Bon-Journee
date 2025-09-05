@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { Map, Compass, Sparkles, Landmark } from "lucide-react";
 
 const featuresData = [
@@ -32,7 +31,11 @@ export default function Features() {
   return (
     <section className="pb-20 pt-20 md:pb-32 md:pt-32 container mx-auto">
       <div className="text-center space-y-4 pb-16 mx-auto max-w-4xl">
-        <Badge>FEATURES</Badge>
+        {/* Simple Tailwind badge instead of shadcn Badge */}
+        <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+          FEATURES
+        </span>
+
         <h2 className="mx-auto mt-4 text-3xl font-bold sm:text-5xl tracking-tight">
           Why Choose Bon Journee
         </h2>
