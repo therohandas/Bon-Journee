@@ -1,5 +1,4 @@
 import PageTransition from '../components/PageTransition.jsx'
-import HeroMotion from "../components/HeroMotion"
 import Hero from '../components/Hero.jsx'
 import Card from '../components/Card.jsx'
 import { Link } from 'react-router-dom'
