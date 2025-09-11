@@ -1,24 +1,15 @@
-// MapView: simple iframe-based map using OpenStreetMap embed
-import React from 'react'
-
-export default function MapView({ center = [0,0], markers = [] , zoom=15 }){
-  const lat = center[0]
-  const lng = center[1]
-  const bbox = `${lng-0.01},${lat-0.01},${lng+0.01},${lat+0.01}`
-  const marker = encodeURIComponent(`${lat},${lng}`)
-  const src = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${marker}`
-
+export default function MapView() {
   return (
-    <div style={{width:'100%', height: '100%'}}>
+    <div style={{ width: "100%", height: "500px" }}>
       <iframe
-        title="map"
-        src={src}
-        style={{border:0, width:'100%', height:420}}
-      />
-      <div style={{marginTop:8, display:'flex', gap:8, justifyContent:'flex-end'}}>
-        <a className="badge" href={`https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=${zoom}/${lat}/${lng}`} target="_blank" rel="noreferrer">Open OSM</a>
-        <a className="badge" href={`https://www.google.com/maps/search/?api=1&query=${lat},${lng}`} target="_blank" rel="noreferrer">Open Google Maps</a>
-      </div>
+        title="Google Maps Preview"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        loading="lazy"
+        allowFullScreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117462.25684456554!2d85.7633!3d20.2961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d6a9d3e4e7%3A0xabcdef123456789!2sBhubaneswar!5e0!3m2!1sen!2sin!4v1694343098765"
+      ></iframe>
     </div>
-  )
+  );
 }
