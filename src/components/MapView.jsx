@@ -12,7 +12,7 @@ export default function MapView({ center = [20.5937, 78.9629], markers = [], zoo
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <Map
-        mapStyle={`https://api.maptiler.com/maps/streets/style.json?key=YOUR_MAPTILER_KEY`}
+        mapStyle={`https://api.maptiler.com/maps/streets/style.json?key=Ys4qGTnlt8qW4RIIYD74`}
         style={{ width: "100%", height: "100%" }}
         initialViewState={viewport}
         onMove={(evt) => setViewport(evt.viewState)}
