@@ -1,37 +1,30 @@
-import React from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
-import L from "leaflet";
+// MapView: MapLibre + MapTiler Streets (light mode)
+import React, { useState } from "react";
+import Map, { Marker } from "react-map-gl/maplibre";
 
-const customIcon = new L.Icon({
-  iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png",
-  shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41],
-});
-
-export default function MapView({ latitude, longitude, name }) {
-  if (!latitude || !longitude) {
-    return <p className="text-red-500">Location not available.</p>;
-  }
+export default function MapView({ center = [20.5937, 78.9629], markers = [], zoom = 10 }) {
+  const [viewport, setViewport] = useState({
+    longitude: center[1],
+    latitude: center[0],
+    zoom: zoom,
+  });
 
   return (
-    <div className="h-[400px] w-full mt-4 rounded-lg overflow-hidden shadow-md">
-      <MapContainer
-        center={[latitude, longitude]}
-        zoom={15}
-        style={{ height: "100%", width: "100%" }}
+    <div style={{ width: "100%", height: "100%" }}>
+      <Map
+        mapStyle={`https://api.maptiler.com/maps/streets/style.json?key=YOUR_MAPTILER_KEY`}
+        style={{ width: "100%", height: "100%" }}
+        initialViewState={viewport}
+        onMove={(evt) => setViewport(evt.viewState)}
       >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        <Marker position={[latitude, longitude]} icon={customIcon}>
-          <Popup>{name || "Selected Location"}</Popup>
-        </Marker>
-      </MapContainer>
+        {/* Main marker */}
+        <Marker longitude={center[1]} latitude={center[0]} color="red" />
+
+        {/* Extra markers */}
+        {markers.map((pos, i) => (
+          <Marker key={i} longitude={pos[1]} latitude={pos[0]} color="blue" />
+        ))}
+      </Map>
     </div>
   );
 }
